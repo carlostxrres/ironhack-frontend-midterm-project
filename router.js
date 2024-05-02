@@ -44,6 +44,8 @@ function displayProject(projectsData, currentProjectId, projectArea) {
     glowImg: projectArea.querySelector(".image-glow"),
     description: projectArea.querySelector(".project-description"),
   })
+
+  document.title = `Circle - ${projectData.name}`
 }
 
 function displayOtherProjects(
