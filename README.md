@@ -11,9 +11,11 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 - [x] Hacerlo responsive
 - [ ] Añadir JavaScript
   - [ ] Obtener proyectos de la API
+  - [ ] Handle errors and edge cases
   - [ ] Validar el formulario usando JavaScript
 - [ ] Para obtener créditos extra, añadir alguna funcionalidad adicional:
   - [ ] Una página 404 que funcione.
   - [ ] Un menú responsivo. Cuando se hace clic, cambiar el menú
+  - [ ] Skeleton loaders for dynamic content
 - [ ] Desplegar en Netlify
 - [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
