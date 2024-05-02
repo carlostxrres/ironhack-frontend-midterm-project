@@ -10,7 +10,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 - [x] Reproducir las páginas en HTML y CSS
 - [x] Hacerlo responsive
 - [ ] Añadir JavaScript
-  - [ ] Obtener proyectos de la API
+  - [x] Get data for project pages dynamically from API
   - [ ] Handle errors and edge cases
   - [ ] Validar el formulario usando JavaScript
 - [ ] Para obtener créditos extra, añadir alguna funcionalidad adicional:
