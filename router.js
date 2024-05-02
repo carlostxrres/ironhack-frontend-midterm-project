@@ -54,10 +54,10 @@ function displayOtherProjects(
   // to do: handle no currentProjectId...
 
   const otherProjectsData = getRandomProjects(projectsData, currentProjectId)
-  const otherProjectsCard = otherProjectsArea.querySelectorAll(".card")
+  const otherProjectsCards = otherProjectsArea.querySelectorAll(".card")
 
-  for (let i = 0; i < otherProjectsCard.length; i++) {
-    const card = otherProjectsCard[i]
+  for (let i = 0; i < otherProjectsCards.length; i++) {
+    const card = otherProjectsCards[i]
     const projectData = otherProjectsData[i]
     if (!projectData) {
       // to do: remove card
