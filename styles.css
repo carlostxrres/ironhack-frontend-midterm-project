@@ -277,8 +277,9 @@ section.hero {
         }
 
         .read-more {
-            margin-top: auto;
-            padding-top: 2rem;
+            margin-top: 2rem;
+            height: 1.6rem;
+            box-sizing: content-box;
         }
 
         &:hover {
@@ -463,14 +464,14 @@ footer {
     --project-image-height: 32rem;
     margin-block: 4rem;
     position: relative;
-    max-height: var(--project-image-height);
+    height: var(--project-image-height);
 
     img {
         max-width: 100%;
         transform-origin: center;
 
         width: 100%;
-        max-height: var(--project-image-height);
+        height: var(--project-image-height);
         object-fit: cover;
         object-position: 50%;
     }
@@ -497,7 +498,7 @@ footer {
 
 .project-description p {
     line-height: 1.6rem;
-    margin-block: 1.6rem
+    margin-block: 1.6rem;
 }
 
 /* Contact form */
@@ -598,6 +599,61 @@ form:invalid button[type="submit"] {
     pointer-events: none;
 } */
 
+/* Skeleton loading */
+.skeleton {
+    opacity: .7;
+    width: 100%;
+    border-radius: .125rem;
+    animation: skeleton-loading 1s linear infinite alternate;
+
+    transition: none;
+
+    &.skeleton-line {
+        height: 1rem;
+        margin-block: .5rem;
+    }
+
+    &.skeleton-w-15 {
+        width: 15%;
+    }
+
+    &.skeleton-w-30 {
+        width: 30%;
+    }
+
+    &.skeleton-w-45 {
+        width: 45%;
+    }
+
+    &.skeleton-w-75 {
+        width: 75%;
+    }
+}
+
+.skeleton-h-1-5 {
+    line-height: 1.5rem;
+    height: 1.5rem;
+}
+
+.skeleton-h-2 {
+    line-height: 2rem;
+    height: 2rem;
+}
+
+.skeleton-h-4 {
+    line-height: 4rem;
+    height: 4rem;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(199, 20%, 70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
 
 /* Responsive */
 @media (max-width: 1280px) {

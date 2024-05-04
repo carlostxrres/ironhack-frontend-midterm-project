@@ -40,8 +40,10 @@ function displayProject(projectsData, currentProjectId, projectArea) {
   // to do: handle no projectData... 404 scenario
   // message: "no project has ID X"
 
+  // projectArea.innerHTML = getProjectAreaHtml(projectData)
+
   fillNodesWithData(projectData, {
-    time: projectArea.querySelector(".project-details-time time"),
+    time: projectArea.querySelector(".project-details-time"),
     title: projectArea.querySelector("h1"),
     summary: projectArea.querySelector(".project-details-summary"),
     mainImg: projectArea.querySelector(".image-main"),
@@ -93,11 +95,11 @@ function fillNodesWithData(projectData, nodes) {
     nodes.description.innerHTML = projectData.content
   }
   if (nodes.link) {
+    nodes.link.textContent = "Read more"
     nodes.link.href = `/project.html?${PROJECT_ID_KEY}=${projectData.uuid}`
   }
   if (nodes.time) {
-    nodes.time.textContent = projectData.completed_on
-    nodes.time.datetime = projectData.completed_on
+    nodes.time.innerHTML = `Completed on <time datetime="${projectData.completed_on}">${projectData.completed_on}</time>`
   }
   if (nodes.img) {
     fillImgNode(nodes.img)
@@ -108,6 +110,32 @@ function fillNodesWithData(projectData, nodes) {
   if (nodes.glowImg) {
     fillImgNode(nodes.glowImg)
   }
+
+  Object.values(nodes).forEach((node) =>
+    node.classList.remove(
+      "skeleton",
+      "skeleton-w-15",
+      "skeleton-w-30",
+      "skeleton-w-45",
+      "skeleton-w-75"
+    )
+  )
+}
+
+function getProjectAreaHtml(projectData) {
+  const { name, description, content, image, completed_on } = projectData
+  return (
+    `<h1>${name}</h1>` +
+    `<div class="project-details">` +
+    /**/ `<p class="project-details-summary">${description}</p>` +
+    /**/ `<p class="project-details-time">Completed on <time>${completed_on}</time></p>` +
+    `</div>` +
+    `<figure class="project-image">` +
+    /**/ `<img class="image-main skeleton" src="${image}">` +
+    /**/ `<img class="image-glow" src="${image}">` +
+    `</figure>` +
+    `<div class="project-description">${content}</div>`
+  )
 }
 
 function shuffle(array) {
