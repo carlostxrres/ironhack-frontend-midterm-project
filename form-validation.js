@@ -1,9 +1,9 @@
-const form = document.querySelector(".contact-us")
-// to do: handle error if some is not instanceof HTMLElement
-
 const CONSTANTS = {
   LOCALSTORAGE_KEY: "contact-us-form-data",
 }
+
+const form = document.querySelector(".contact-us")
+// to do: handle error if this is not instanceof HTMLElement
 
 const previousFormData = localStorage_getForm()
 if (previousFormData) {
@@ -53,12 +53,12 @@ function handleInvalidFieldsUi(validationResults) {
     if (invalidHandledFields.includes(validation.fieldName)) return
 
     // Get errorMessageNode
-    const fieldNode = getFieldNode(validation.fieldName)
-    // to do: handle error if some is not instanceof HTMLElement
+    const fieldNode = form.querySelector(`[name=${validation.fieldName}]`)
+    // to do: handle error if this is not instanceof HTMLElement
     const labelNode = fieldNode.closest("label")
-    // to do: handle error if some is not instanceof HTMLElement
+    // to do: handle error if this is not instanceof HTMLElement
     const errorMessageNode = labelNode.querySelector(".error-message-text")
-    // to do: handle error if some is not instanceof HTMLElement
+    // to do: handle error if this is not instanceof HTMLElement
 
     // Perform UI changes
     const [isValid, classMethod, errorMessage] = validation.meets
@@ -66,6 +66,8 @@ function handleInvalidFieldsUi(validationResults) {
       : [false, "add", validation.invalidMessage]
     fieldNode.classList[classMethod]("invalid")
     errorMessageNode.textContent = errorMessage
+
+    // Focus on the first invalid field
     if (invalidHandledFields.length < 1) {
       fieldNode.focus()
     }
@@ -75,10 +77,6 @@ function handleInvalidFieldsUi(validationResults) {
       invalidHandledFields.push(validation.fieldName)
     }
   })
-}
-
-function getFieldNode(fieldName) {
-  return form.querySelector(`[name=${fieldName}]`)
 }
 
 function handleSuccessUi(formData) {
@@ -91,7 +89,6 @@ function handleSuccessUi(formData) {
   const messageDetailsHtml = formKeys
     .map((fieldKey) => {
       const fieldValue = formData.get(fieldKey)
-
       const displayValue =
         handleFieldMethods[fieldKey]?.(fieldValue) || fieldValue
 
