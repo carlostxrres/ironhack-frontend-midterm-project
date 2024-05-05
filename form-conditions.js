@@ -28,7 +28,7 @@ const formConditions = [
     fieldName: "email",
     condition: (fieldValue) => {
       const emailUsernameRegex = /^[\w-\.]+/
-      return emailUsernameRegex.test(fieldValue)
+      return emailUsernameRegex.test(fieldValue.trim())
     },
   },
   {
@@ -43,7 +43,7 @@ const formConditions = [
     fieldName: "email",
     condition: (fieldValue) => {
       const domainRegex = /([\w-]+\.)+[\w-]{2,4}$/
-      return domainRegex.test(fieldValue)
+      return domainRegex.test(fieldValue.trim())
     },
   },
   {
@@ -69,7 +69,6 @@ const formConditions = [
     fieldName: "phone",
     condition: (fieldValue) => {
       const onlyDigits = fieldValue.replace(/\D/g, "")
-      console.log("onlyDigits", onlyDigits, "length", onlyDigits.length)
       return onlyDigits.length > 8 && onlyDigits.length < 11
     },
   },
