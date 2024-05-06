@@ -20,6 +20,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
   - [x] Skeleton loaders for dynamic content
   - [x] Add a favicon
   - [x] In projects, change document title dynamically
+  - [ ] Un "modo oscuro" según los ajustes del usuario
   - [ ] Añadir un botón de "modo oscuro" que cambie el tema de la página
   - [x] Show a success message when the form is submitted, with the details of the form
   - [x] Remember the previously-sent form, using localStorage
