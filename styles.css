@@ -1,5 +1,5 @@
-/* Colors as per Figma */
-:root {
+body {
+    /* Colors as per Figma */
     --color-primary-1: #072ac8;
     --color-primary-2: #43d2ff;
     --color-primary-3: #a2d6f9;
@@ -12,10 +12,8 @@
     --color-text-2: #68708d;
 
     --color-background: #f2f4fc;
-}
 
-/* Other variables */
-:root {
+    /* Other variables */
     --color-white: #fff;
     --color-field: #e7e9f1;
     --color-error: red;
@@ -29,13 +27,8 @@
     --font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* dark mode */
+/* Dark mode colors */
 body.dark-mode {
-    /* Changes in dark mode:
-       * color-primary-1 and color-secondary were maintained, but switched
-       * For every other color, just passed them to HSL and changed the lightness
-       * Made some extra adjustments for a few colors
-     */
     --color-primary-1: #ffc600;
     --color-primary-2: hsl(194, 100%, 40%);
     --color-primary-3: hsl(204, 88%, 30%);
@@ -47,9 +40,9 @@ body.dark-mode {
     --color-text-1: hsl(230, 27%, 90%);
     --color-text-2: hsl(227, 15%, 65%);
 
-    --color-background: hsl(228, 64%, 12%);
+    --color-background: hsl(228, 64%, 8%);
 
-    
+
     --color-white: hsl(228, 26%, 24%);
     --color-field: hsl(228, 26%, 18%);
     --color-error: #ff0000;
@@ -197,6 +190,38 @@ section {
                 color: var(--color-primary-1);
             }
         }
+    }
+}
+
+.icon-theme-switch {
+    position: absolute;
+    left: 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.nav-bar:hover .icon-theme-switch {
+    opacity: 1;
+}
+
+
+.icon-theme-dark {
+    opacity: 0;
+    transition: opacity var(--transition-main);
+}
+
+.icon-theme-light {
+    opacity: 1;
+    transition: opacity var(--transition-main);
+}
+
+.dark-mode {
+    .icon-theme-dark {
+        opacity: 1;
+    }
+
+    .icon-theme-light {
+        opacity: 0;
     }
 }
 
@@ -726,6 +751,10 @@ form:invalid button[type="submit"] {
     .project-details {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .icon-theme-switch {
+        display: none;
     }
 }
 

@@ -27,3 +27,10 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
   - [ ] Handle "subscribe to mail list" form submission
 - [ ] Desplegar en Netlify
 - [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
+
+
+### Dark mode
+Changes in dark mode:
+* color-primary-1 and color-secondary were maintained, but switched
+* For every other color, just passed them to HSL and changed the lightness
+* Made some extra adjustments for a few colors
