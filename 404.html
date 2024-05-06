@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circle</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.svg">
+    <script src="theme.js" defer></script>
+    <script src="project-router.js" defer></script>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <button class="icon-theme-switch button-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon-theme-light">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon-theme-dark">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 3l18 18" />
+                <path d="M16 12a4 4 0 0 0 -4 -4m-2.834 1.177a4 4 0 0 0 5.66 5.654" />
+                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+            </svg>
+        </button>
+        <a href="/index.html#" class="logo-container"><img src="./img/logos/circle.svg" alt="Circle's logo"></a>
+        <ul>
+            <li><a href="/index.html#" class="current-page">Home</a></li>
+            <li><a href="/index.html#projects">Projects</a></li>
+            <li><a href="/index.html#services">Services</a></li>
+        </ul>
+        <a class="button-primary" href="/contact-us.html#contact-us">Contact Us</a>
+    </nav>
+
+    <!-- Start of page-exclusive content -->
+    <main class="contrast-section primary">
+        <h2>Oops! You've reached a digital dead end</h2>
+        <p class="message-404 skeleton skeleton-w-30 skeleton-h-1-5"></p>
+        <p>Don't worry, our developers are here to rescue you:</p>
+        <a class="see-random-project button-primary skeleton skeleton-w-15">
+            <span>See a random project</span>
+        </a>
+    </main>
+    <!-- End of page-exclusive content -->
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="card-container">
+            <li>
+                <article class="card">
+                    <figure class="card-image">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            class="skeleton base" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="skeleton skeleton-w-45 skeleton-h-1-5"></h3>
+                        <p class="skeleton skeleton-w-75 skeleton-h-1-5"></p>
+                        <a class="read-more skeleton skeleton-w-30"></a>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="card">
+                    <figure class="card-image">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            class="skeleton base" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="skeleton skeleton-w-45 skeleton-h-1-5"></h3>
+                        <p class="skeleton skeleton-w-75 skeleton-h-1-5"></p>
+                        <a class="read-more skeleton skeleton-w-30"></a>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="card">
+                    <figure class="card-image">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            class="skeleton base" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="skeleton skeleton-w-45 skeleton-h-1-5"></h3>
+                        <p class="skeleton skeleton-w-75 skeleton-h-1-5"></p>
+                        <a class="read-more skeleton skeleton-w-30"></a>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
+    <section class="contrast-section secondary">
+        <h2>Do you have any questions?</h2>
+        <p>Let us help you!</p>
+        <form class="newsletter-form">
+            <!-- To do: validate -->
+            <label class="text-input">
+                <img src="./img/newsletter/icon/mail.svg" alt="Icon of an envelope">
+                <input type="email" placeholder="Enter your email">
+            </label>
+            <button type="submit" class="button-primary">Subscribe</button>
+        </form>
+    </section>
+    <footer>
+        <div class="footer-info">
+            <img src="./img/logos/circle.svg" alt="Circle logo">
+            <address>2972 Westheimer Rd. Santa Ana,<br>Illinois 85486</address>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Team</a></li>
+            <li><a href="/index.html#services">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="/index.html#projects">Projects</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

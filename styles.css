@@ -104,6 +104,7 @@ button.button-primary,
 button.button-secondary,
 a.button-primary,
 a.button-secondary {
+    display: inline-block;
     padding: var(--padding-main);
     font-weight: 500;
     padding: var(--padding-main);
@@ -698,6 +699,11 @@ form:invalid button[type="submit"] {
     height: 2rem;
 }
 
+.skeleton-h-2-5 {
+    /* line-height: 2.5rem; */
+    height: 2.5rem;
+}
+
 .skeleton-h-4 {
     line-height: 4rem;
     height: 4rem;
@@ -710,6 +716,23 @@ form:invalid button[type="submit"] {
 
     100% {
         background-color: hsl(200, 20%, 95%);
+    }
+}
+
+/* 404 page */
+.message-404 {
+    margin-inline: auto;
+}
+.see-random-project {
+    margin-top: 2rem;
+
+    * {
+        opacity: 0;
+        transition: opacity var(--transition-main);
+    }
+
+    &.link-ready>* {
+        opacity: 1;
     }
 }
 
