@@ -20,8 +20,8 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
   - [x] Skeleton loaders for dynamic content
   - [x] Add a favicon
   - [x] In projects, change document title dynamically
-  - [ ] Un "modo oscuro" según los ajustes del usuario
-  - [ ] Añadir un botón de "modo oscuro" que cambie el tema de la página
+  - [x] Un "modo oscuro" según los ajustes del usuario
+  - [x] Añadir un botón de "modo oscuro" que cambie el tema de la página
   - [x] Show a success message when the form is submitted, with the details of the form
   - [x] Remember the previously-sent form, using localStorage
   - [ ] Handle "subscribe to mail list" form submission
@@ -30,7 +30,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 
 
 ### Dark mode
-Changes in dark mode:
+Colors in dark mode:
 * color-primary-1 and color-secondary were maintained, but switched
 * For every other color, just passed them to HSL and changed the lightness
 * Made some extra adjustments for a few colors

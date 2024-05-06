@@ -1,11 +1,10 @@
 const CONSTANTS = {
-    CLASSNAME_DARK_MODE: "dark-mode"
+    CLASSNAME_DARK_MODE: "dark-mode",
+    LOCALSTORAGE_KEY: "dark-mode"
 }
 
 startUp()
 setThemeOnClick()
-
-// To do: add a switch to toggle dark mode on and off
 
 function setThemeClass(isDarkMode) {
     const classMethod = isDarkMode ? "add" : "remove"
@@ -13,22 +12,38 @@ function setThemeClass(isDarkMode) {
 }
 
 function startUp() {
+    const savedTheme = localStorage.getItem(CONSTANTS.LOCALSTORAGE_KEY)
+    const isDarkMode = JSON.parse(savedTheme)
+    const wasSaved = typeof isDarkMode === "boolean"
+
+    if (!wasSaved) {
+        setThemeBySystem()
+    } else {
+        setThemeClass(isDarkMode)
+    }
+}
+
+function setThemeBySystem() {
     if (!window.matchMedia) {
         return
     }
-    
-    const themeQuery = window.matchMedia("(prefers-color-scheme: dark)")    
+
+    const themeQuery = window.matchMedia("(prefers-color-scheme: dark)")
     setThemeClass(themeQuery.matches)
-    
+
     themeQuery.addEventListener("change", (event) => setThemeClass(event.matches))
 }
 
 function setThemeOnClick() {
     const logoContainer = document.querySelector(".icon-theme-switch")
+    // to do: if logoContainer is not an instance of HTMLElement ...
+
     logoContainer.addEventListener("click", () => {
-        console.log("click")
         const isDarkModeSet = checkIsDarkModeSet()
-        setThemeClass(!isDarkModeSet)
+        const isNewThemeDark = !isDarkModeSet
+
+        localStorage.setItem(CONSTANTS.LOCALSTORAGE_KEY, isNewThemeDark)
+        setThemeClass(isNewThemeDark)
     })
 }
 
