@@ -1,4 +1,4 @@
-const CONSTANTS = {
+const FORM_CONSTANTS = {
   LOCALSTORAGE_KEY: "contact-us-form-data",
 }
 
@@ -29,7 +29,7 @@ function handleSubmit(submitEvent) {
 }
 
 function validateForm(formData) {
-  const validations = formConditions.map(
+  const validationResults = formConditions.map(
     ({ fieldName, condition, invalidMessage }) => {
       const fieldValue = formData.get(fieldName)
       const meets = condition(fieldValue)
@@ -37,11 +37,11 @@ function validateForm(formData) {
     }
   )
 
-  const areAllValid = validations.every((validation) => validation.meets)
+  const areAllValid = validationResults.every((validation) => validation.meets)
   if (areAllValid) {
     return true
   } else {
-    handleInvalidFieldsUi(validations)
+    handleInvalidFieldsUi(validationResults)
     return false
   }
 }
@@ -143,11 +143,11 @@ function getAmountOfTime(milliseconds) {
 function localStorage_setForm(formData) {
   const formDataObject = Object.fromEntries(formData.entries())
   const formDataString = JSON.stringify(formDataObject)
-  localStorage.setItem(CONSTANTS.LOCALSTORAGE_KEY, formDataString)
+  localStorage.setItem(FORM_CONSTANTS.LOCALSTORAGE_KEY, formDataString)
 }
 
 function localStorage_getForm() {
-  const formDataString = localStorage.getItem(CONSTANTS.LOCALSTORAGE_KEY)
+  const formDataString = localStorage.getItem(FORM_CONSTANTS.LOCALSTORAGE_KEY)
   if (!formDataString) return null
 
   const formDataObject = JSON.parse(formDataString)
@@ -161,5 +161,5 @@ function localStorage_getForm() {
 }
 
 function localStorage_deleteForm() {
-  localStorage.removeItem(CONSTANTS.LOCALSTORAGE_KEY)
+  localStorage.removeItem(FORM_CONSTANTS.LOCALSTORAGE_KEY)
 }

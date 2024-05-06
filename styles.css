@@ -163,14 +163,14 @@ section {
 }
 
 .nav-bar {
+    --upper-padding: 3rem;
     display: flex;
     justify-content: space-between;
-    margin-top: 3rem;
 
     position: sticky;
-    top: 0;
+    top: calc(-1 * var(--upper-padding));
     background: var(--color-background);
-    padding: 1rem var(--body-padding-inline);
+    padding: calc(1rem + var(--upper-padding)) var(--body-padding-inline) 1rem;
     z-index: 2;
 
     .logo-container {
@@ -620,6 +620,9 @@ footer {
         .error-message {
             display: none;
             color: var(--color-error);
+            img {
+                min-width: 16px;
+            }
         }
 
         .invalid {
