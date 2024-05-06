@@ -246,6 +246,7 @@ section.hero {
             height: 100%;
             width: 100%;
             object-fit: contain;
+            max-width: 40rem;
         }
 
         .hero-image-floating {
@@ -664,6 +665,7 @@ form:invalid button[type="submit"] {
     width: 100%;
     border-radius: .125rem;
     animation: skeleton-loading 1s linear infinite alternate;
+    pointer-events: none;
 
     transition: none;
 
@@ -691,7 +693,7 @@ form:invalid button[type="submit"] {
 
 .skeleton-h-1-5 {
     line-height: 1.5rem;
-    height: 1.5rem;
+    /* height: 1.5rem; */
 }
 
 .skeleton-h-2 {

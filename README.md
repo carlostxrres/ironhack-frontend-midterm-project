@@ -11,7 +11,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 - [x] Hacerlo responsive
 - [ ] Añadir JavaScript
   - [x] Get data for project pages dynamically from API
-    - [ ] Handle errors and edge cases
+    - [x] Handle errors and edge cases
   - [x] Validar el formulario usando JavaScript
     - [ ] Handle errors and edge cases
 - [ ] Para obtener créditos extra, añadir alguna funcionalidad adicional:

@@ -9,15 +9,46 @@ fetch(ENDPOINT)
   .then((response) => response.json())
   .then(displayData)
   .catch((error) => {
-    // to do: handle this
-    console.error(error)
+    if (window.location.pathname === "/project.html") {
+      navigateTo404(error)
+      console.error(error)
+    } else if (window.location.pathname === "/404.html") {
+      displayData([])
+    }
   })
 
 function displayData(projectsData) {
-  // to do: handle no projectsData...
-  // comprobar la reponse?
-  // validar que la response tiene la forma adecuada
+  const { currentProjectId, message404 } = getInfoFromUrlParams()
 
+  const nodesToInitialize = [
+    {
+      selector: ".message-404",
+      initializator: (node) => fillNotFoundReasonNode(message404, node)
+    },
+    {
+      selector: ".see-random-project",
+      initializator: (node) => initializeRandomProjectButton(projectsData, currentProjectId, node)
+    },
+    {
+      selector: "#project",
+      initializator: (node) => displayProject(projectsData, currentProjectId, node)
+    },
+    {
+      selector: "#projects",
+      initializator: (node) => displayOtherProjects(projectsData, currentProjectId, node)
+    },
+  ]
+  nodesToInitialize.forEach(initializeNode)
+}
+
+function initializeNode({ selector, initializator }) {
+  const node = document.querySelector(selector)
+  if (node instanceof HTMLElement) {
+    initializator(node)
+  }
+}
+
+function getInfoFromUrlParams() {
   const searchParams = new URLSearchParams(location.search)
   const currentProjectId = searchParams.get(
     SEARCH_KEYS.PROJECT_ID
@@ -25,35 +56,17 @@ function displayData(projectsData) {
   const message404 = searchParams.get(
     SEARCH_KEYS.MESSAGE_404
   )
-  searchParams.delete(SEARCH_KEYS.MESSAGE_404)
-  window.history.replaceState({}, "", `${window.location.pathname}?${searchParams}`);
-
-  const projectArea = document.querySelector("#project")
-  if (projectArea instanceof HTMLElement) {
-    displayProject(projectsData, currentProjectId, projectArea)
+  if (searchParams.has(SEARCH_KEYS.MESSAGE_404)) {
+    searchParams.delete(SEARCH_KEYS.MESSAGE_404)
+    window.history.replaceState({}, "", `${window.location.pathname}?${searchParams}`)
   }
 
-  const otherProjectsArea = document.querySelector("#projects")
-  if (otherProjectsArea instanceof HTMLElement) {
-    displayOtherProjects(projectsData, currentProjectId, otherProjectsArea)
-  }
-
-  // The following are only in page 404
-  const randomProjectButton = document.querySelector(".see-random-project")
-  if (randomProjectButton instanceof HTMLElement) {
-    initializeRandomProjectButton(projectsData, currentProjectId, randomProjectButton)
-  }
-
-  const message404Node = document.querySelector(".message-404")
-  if (message404Node instanceof HTMLElement) {
-    fillNotFoundReasonNode(message404, message404Node)
-  }
+  return { currentProjectId, message404 }
 }
 
 function displayProject(projectsData, currentProjectId, projectArea) {
   if (!currentProjectId) {
-    const message404 = "You were trying to see a project without specifying a project ID"
-    window.location = `/404.html?${SEARCH_KEYS.MESSAGE_404}=${message404}`
+    navigateTo404("You were trying to see a project without specifying a project ID")
     return
   }
 
@@ -62,8 +75,7 @@ function displayProject(projectsData, currentProjectId, projectArea) {
   )
 
   if (!projectData) {
-    const message404 = `You were trying to access a project with ID ${currentProjectId}, while there are no projects found with this ID`
-    window.location = `/404.html?${SEARCH_KEYS.MESSAGE_404}=${message404}`
+    navigateTo404(`You were trying to access a project with ID ${currentProjectId}, while there are no projects with this ID`)
     return
   }
 
@@ -93,7 +105,7 @@ function displayOtherProjects(
     const card = otherProjectsCards[i]
     const projectData = otherProjectsData[i]
     if (!projectData) {
-      // to do: remove card
+      card.remove()
       break
     }
 
@@ -194,6 +206,10 @@ function shuffle(array) {
       ;[array[i], array[j]] = [array[j], array[i]]
   }
   return array
+}
+
+function navigateTo404(message404) {
+  window.location = `/404.html?${SEARCH_KEYS.MESSAGE_404}=${message404}`
 }
 
 // // Another approach, unused:
