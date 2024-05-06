@@ -16,7 +16,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
     - [ ] Handle errors and edge cases
 - [ ] Para obtener créditos extra, añadir alguna funcionalidad adicional:
   - [x] Una página 404 que funcione - "project X does not exist" - with an option to see a random project or go back to the home page
-  - [ ] Un menú responsivo. Cuando se hace clic, cambiar el menú
+  - [x] Un menú responsivo. Cuando se hace clic, cambiar el menú
   - [x] Skeleton loaders for dynamic content
   - [x] Add a favicon
   - [x] In projects, change document title dynamically

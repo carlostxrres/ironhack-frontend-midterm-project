@@ -34,12 +34,30 @@
             </svg>
         </button>
         <a href="/index.html#" class="logo-container"><img src="./img/logos/circle.svg" alt="Circle's logo"></a>
-        <ul>
+        <ul class="only-desktop">
             <li><a href="/index.html#" class="current-page">Home</a></li>
             <li><a href="/index.html#projects">Projects</a></li>
             <li><a href="/index.html#services">Services</a></li>
         </ul>
-        <a class="button-primary" href="/contact-us.html#contact-us">Contact Us</a>
+        <a class="button-primary only-desktop" href="/contact-us.html#contact-us">Contact Us</a>
+
+        <div class="burger-menu">
+            <button class="button-primary burger-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 6l16 0" />
+                    <path d="M4 12l16 0" />
+                    <path d="M4 18l16 0" />
+                </svg>
+            </button>
+            <ul class="burger-menu-content">
+                <li><a href="/index.html#" class="current-page">Home</a></li>
+                <li><a href="/index.html#projects">Projects</a></li>
+                <li><a href="/index.html#services">Services</a></li>
+                <li><a class="button-primary" href="/contact-us.html#contact-us">Contact Us</a></li>
+            </ul>
+        </div>
     </nav>
     <section class="hero">
         <div class="hero-content">
