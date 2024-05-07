@@ -11,7 +11,9 @@ const handleEntry = (entry) => {
   const currentlyActive = document.querySelector(
     `.nav-bar .${CURRENT_SECTION_CLASSNAME}`
   )
-  const shouldBeActive = document.querySelector(`[href="/index.html#${id}"]`)
+  const shouldBeActive = document.querySelector(
+    `.nav-bar [href="/index.html#${id}"]`
+  )
 
   if (currentlyActive instanceof HTMLElement) {
     currentlyActive.classList.remove(CURRENT_SECTION_CLASSNAME)
