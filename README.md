@@ -25,7 +25,6 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
   - [x] Show a success message when the form is submitted, with the details of the form
   - [x] Remember the previously-sent form, using localStorage
   - [x] Highlight the current section in nav-bar
-  - [ ] Handle "subscribe to mail list" form submission
 - [ ] Desplegar en Netlify
 - [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
 
