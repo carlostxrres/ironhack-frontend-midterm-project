@@ -195,16 +195,22 @@ section {
 
     .burger-menu {
         display: none;
+        position: relative;
+
         &:hover ul.burger-menu-content {
             display: flex;
         }
+
         ul.burger-menu-content {
             display: none;
             flex-direction: column;
             border: 1px solid var(--color-primary-1);
             position: absolute;
+            right: 0;
+            width: max-content;
             border-radius: var(--border-radius-micro);
             background-color: var(--color-background);
+
             .button-primary {
                 border-radius: 0;
             }
@@ -620,6 +626,7 @@ footer {
         .error-message {
             display: none;
             color: var(--color-error);
+
             img {
                 min-width: 16px;
             }
@@ -746,6 +753,7 @@ form:invalid button[type="submit"] {
 .message-404 {
     margin-inline: auto;
 }
+
 .see-random-project {
     margin-top: 2rem;
 
@@ -793,10 +801,11 @@ form:invalid button[type="submit"] {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .only-desktop {
         display: none !important;
     }
+
     .nav-bar .burger-menu {
         display: block;
     }
