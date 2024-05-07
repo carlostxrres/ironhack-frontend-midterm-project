@@ -23,19 +23,22 @@ function displayData(projectsData) {
   const nodesToInitialize = [
     {
       selector: ".message-404",
-      initializator: (node) => fillNotFoundReasonNode(message404, node)
+      initializator: (node) => fillNotFoundReasonNode(message404, node),
     },
     {
       selector: ".see-random-project",
-      initializator: (node) => initializeRandomProjectButton(projectsData, currentProjectId, node)
+      initializator: (node) =>
+        initializeRandomProjectButton(projectsData, currentProjectId, node),
     },
     {
       selector: "#project",
-      initializator: (node) => displayProject(projectsData, currentProjectId, node)
+      initializator: (node) =>
+        displayProject(projectsData, currentProjectId, node),
     },
     {
       selector: "#projects",
-      initializator: (node) => displayOtherProjects(projectsData, currentProjectId, node)
+      initializator: (node) =>
+        displayOtherProjects(projectsData, currentProjectId, node),
     },
   ]
   nodesToInitialize.forEach(initializeNode)
@@ -50,15 +53,15 @@ function initializeNode({ selector, initializator }) {
 
 function getInfoFromUrlParams() {
   const searchParams = new URLSearchParams(location.search)
-  const currentProjectId = searchParams.get(
-    SEARCH_KEYS.PROJECT_ID
-  )
-  const message404 = searchParams.get(
-    SEARCH_KEYS.MESSAGE_404
-  )
+  const currentProjectId = searchParams.get(SEARCH_KEYS.PROJECT_ID)
+  const message404 = searchParams.get(SEARCH_KEYS.MESSAGE_404)
   if (searchParams.has(SEARCH_KEYS.MESSAGE_404)) {
     searchParams.delete(SEARCH_KEYS.MESSAGE_404)
-    window.history.replaceState({}, "", `${window.location.pathname}?${searchParams}`)
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}?${searchParams}`
+    )
   }
 
   return { currentProjectId, message404 }
@@ -66,7 +69,9 @@ function getInfoFromUrlParams() {
 
 function displayProject(projectsData, currentProjectId, projectArea) {
   if (!currentProjectId) {
-    navigateTo404("You were trying to see a project without specifying a project ID")
+    navigateTo404(
+      "You were trying to see a project without specifying a project ID"
+    )
     return
   }
 
@@ -75,7 +80,9 @@ function displayProject(projectsData, currentProjectId, projectArea) {
   )
 
   if (!projectData) {
-    navigateTo404(`You were trying to access a project with ID ${currentProjectId}, while there are no projects with this ID`)
+    navigateTo404(
+      `You were trying to access a project with ID ${currentProjectId}, while there are no projects with this ID`
+    )
     return
   }
 
@@ -105,8 +112,8 @@ function displayOtherProjects(
     const card = otherProjectsCards[i]
     const projectData = otherProjectsData[i]
     if (!projectData) {
-      card.remove()
-      break
+      card.closest("li").remove()
+      continue
     }
 
     fillNodesWithData(projectData, {
@@ -119,7 +126,6 @@ function displayOtherProjects(
 }
 
 function fillNodesWithData(projectData, nodes) {
-
   const fillImgNode = (imgNode) => {
     imgNode.src = projectData.image
     imgNode.alt = `Image of project ${projectData.name}`
@@ -173,7 +179,11 @@ function removeSkeletonClasses(node) {
   )
 }
 
-function initializeRandomProjectButton(projectsData, currentProjectId, randomProjectButton) {
+function initializeRandomProjectButton(
+  projectsData,
+  currentProjectId,
+  randomProjectButton
+) {
   if (projectsData.length < 1) {
     fillNodesWithData({}, { homeButton: randomProjectButton })
     return
@@ -186,8 +196,8 @@ function initializeRandomProjectButton(projectsData, currentProjectId, randomPro
 function getRandomProjects(projectsData, currentProjectId) {
   const otherProjectsData = currentProjectId
     ? projectsData
-      .slice()
-      .filter((project) => project.uuid !== currentProjectId)
+        .slice()
+        .filter((project) => project.uuid !== currentProjectId)
     : projectsData.slice()
   return shuffle(otherProjectsData)
 }
@@ -203,7 +213,7 @@ function shuffle(array) {
   // Fisher-Yates sorting algorithm
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-      ;[array[i], array[j]] = [array[j], array[i]]
+    ;[array[i], array[j]] = [array[j], array[i]]
   }
   return array
 }
