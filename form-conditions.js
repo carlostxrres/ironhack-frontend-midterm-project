@@ -6,6 +6,12 @@ const formConditions = [
     condition: (fieldValue) => fieldValue.trim().length > 0,
   },
   {
+    conditionName: "Name should not be Ironhack",
+    invalidMessage: "You can't be Ironhack, because I am Ironhack 🧐",
+    fieldName: "full-name",
+    condition: (fieldValue) => fieldValue.trim().toLowerCase() !== "ironhack",
+  },
+  {
     conditionName:
       "Full name should include name and surname separated by a space",
     invalidMessage:
