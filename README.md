@@ -9,11 +9,11 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 
 - [x] Reproducir las páginas en HTML y CSS
 - [x] Hacerlo responsive
-- [ ] Añadir JavaScript
+- [x] Añadir JavaScript
   - [x] Get data for project pages dynamically from API
     - [x] Handle errors and edge cases
   - [x] Validar el formulario usando JavaScript
-    - [ ] Handle errors and edge cases
+    - [x] Handle errors and edge cases
 - [ ] Para obtener créditos extra, añadir alguna funcionalidad adicional:
   - [x] Una página 404 que funcione - "project X does not exist" - with an option to see a random project or go back to the home page
   - [x] Un menú responsivo. Cuando se hace clic, cambiar el menú

@@ -3,7 +3,9 @@ const FORM_CONSTANTS = {
 }
 
 const form = document.querySelector(".contact-us")
-// to do: handle error if this is not instanceof HTMLElement
+if (!(form instanceof HTMLElement)) {
+  throw new Error("Cannot run form validation: 'contact-us' form not found")
+}
 
 const previousFormData = localStorage_getForm()
 if (previousFormData) {
@@ -22,20 +24,19 @@ function handleSubmit(submitEvent) {
   formData.append("date", Date.now())
   formData.append("time-spent", submitEvent.timeStamp)
 
-  // to do: send formData somewhere
+  // Here we sould send formData somewhere
 
+  // If it is successfully sent, we would continue with the following:
   localStorage_setForm(formData)
   handleSuccessUi(formData)
 }
 
 function validateForm(formData) {
-  const validationResults = formConditions.map(
-    ({ fieldName, condition, invalidMessage }) => {
-      const fieldValue = formData.get(fieldName)
-      const meets = condition(fieldValue)
-      return { meets, fieldName, invalidMessage }
-    }
-  )
+  const validationResults = formConditions.map((formCondition) => {
+    const fieldValue = formData.get(formCondition.fieldName)
+    const meets = formCondition.condition(fieldValue)
+    return { ...formCondition, meets }
+  })
 
   const areAllValid = validationResults.every((validation) => validation.meets)
   if (areAllValid) {
@@ -54,11 +55,28 @@ function handleInvalidFieldsUi(validationResults) {
 
     // Get errorMessageNode
     const fieldNode = form.querySelector(`[name=${validation.fieldName}]`)
-    // to do: handle error if this is not instanceof HTMLElement
+    if (!(fieldNode instanceof HTMLElement)) {
+      console.error(
+        `Cannot validate condition "${validation.conditionName}" in field "${validation.fieldName}": field HTML node not found`
+      )
+      return
+    }
+
     const labelNode = fieldNode.closest("label")
-    // to do: handle error if this is not instanceof HTMLElement
+    if (!(labelNode instanceof HTMLElement)) {
+      console.error(
+        `Cannot validate condition "${validation.conditionName}" in field "${validation.fieldName}": field's parent HTML node not found`
+      )
+      return
+    }
+
     const errorMessageNode = labelNode.querySelector(".error-message-text")
-    // to do: handle error if this is not instanceof HTMLElement
+    if (!(errorMessageNode instanceof HTMLElement)) {
+      console.error(
+        `Cannot validate condition "${validation.conditionName}" in field "${validation.fieldName}": field's error area HTML node not found`
+      )
+      return
+    }
 
     // Perform UI changes
     const [isValid, classMethod, errorMessage] = validation.meets
