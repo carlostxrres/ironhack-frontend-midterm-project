@@ -186,6 +186,7 @@ section {
             padding: var(--padding-main);
             display: block;
             color: var(--color-text-2);
+            transition: color var(--transition-slow);
 
             &.current-page {
                 color: var(--color-primary-1);
@@ -250,7 +251,7 @@ section {
     }
 }
 
-section.hero {
+section#hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -769,13 +770,13 @@ form:invalid button[type="submit"] {
 
 /* Responsive */
 @media (max-width: 1280px) {
-    section.hero .hero-image .hero-image-floating {
+    section#hero .hero-image .hero-image-floating {
         width: 17rem;
     }
 }
 
 @media (max-width: 1024px) {
-    section.hero {
+    section#hero {
         flex-direction: column;
         gap: 2rem;
     }
