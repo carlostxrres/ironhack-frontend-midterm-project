@@ -5,34 +5,43 @@
 
 En este proyecto, vas a construir y desplegar tu primer sitio web totalmente responsivo utilizando las tecnologías que has aprendido hasta ahora: HTML, CSS y JavaScript.
 
-## To do
-
-- [x] Reproducir las páginas en HTML y CSS
-- [x] Hacerlo responsive
-- [x] Añadir JavaScript
-- [x] Get data for project pages dynamically from API
-- [x] Handle errors and edge cases
-- [x] Validar el formulario usando JavaScript
-- [x] Handle errors and edge cases
-- [x] Para obtener créditos extra, añadir alguna funcionalidad adicional:
-- [x] Una página 404 que funcione
-- [x] Un menú responsivo. Cuando se hace clic, cambiar el menú
-- [x] Skeleton loaders for dynamic content
-- [x] Add a favicon
-- [x] In projects, change document title dynamically
-- [x] Un "modo oscuro" según los ajustes del usuario
-- [x] Añadir un botón de "modo oscuro" que cambie el tema de la página
-- [x] Show a success message when the form is submitted, with the details of the form
-- [x] Remember the previously-sent form, using localStorage
-- [x] Highlight the current section in nav-bar
-- [ ] Desplegar en Netlify
-- [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
-
 ## Funcionalidades básicas
 
-### Get data for project pages dynamically from API
+### Páginas
+
+| **/** | **/project.html?id=1** | **/contact-us.html** |
+|-|-|-|
+|![Captura de la página principal](/img/readme/home-1.png)|![Captura de la página de proyecto](/img/readme/project-1.png)|![Captura de la página de contacto](/img/readme/contact-us-1.png)|
+
+* **Página principal: `/` o `/index.hml`**
+![Captura de la página principal](/img/readme/home-1.png)
+
+* **Página de proyecto: `/project.html?id=<project-id>`**
+![Captura de la página principal](/img/readme/project-1.png)
+
+* **Página de contacto: `/contact-us.html`**
+![Captura de la página principal](/img/readme/contact-us-1.png)
+
+### Obtenención datos de los proyectos desde la API
+
+Los datos de los proyectos se obtienen dede [el endpoint provisto en las instrucciones](https://raw.githubusercontent.com/ironhack-jc/mid-term-api/main/projects), tanto en las listas de proyectos como en las páginas de proyectos individuales.
 
 ### Validar el formulario usando JavaScript
+
+Las condiciones de validación del formulario se definen en el archivo [`scripts/form-conditions.js`](scripts/form-conditions.js) y se ejecutan en [`scripts/form-validation.js`](scripts/form-validation.js).
+
+Se han añadido las siguientes condiciones:
+* El nombre debe tener al menos un carácter
+* El nombre no debe ser Ironhack - *condición requerida en las instrucciones*
+* El nombre debe incluir nombre y apellido separados por un espacio
+* El correo electrónico debe tener al menos un carácter
+* El correo electrónico debe comenzar con un conjunto de letras, números, puntos o guiones
+* El correo electrónico debe incluir un símbolo @
+* El correo electrónico debe terminar con un nombre de dominio válido
+* El número de teléfono debe tener al menos un carácter
+* El número de teléfono debe incluir solo números, espacios o guiones
+* El número de teléfono debe tener 9 o 10 dígitos
+* El mensaje debe tener al menos un carácter
 
 ## Funcionalidades adicionales
 
@@ -43,10 +52,10 @@ He creado una página 404 que se muestra cuando hay algún error en la página `
 La página 404 muestra lo siguiente:
 
 - Una explicación del error.
-  - Si no se ha especificado Project ID en la URL: `You were trying to see a project without specifying a project ID`.
-  - Si el proyecto no existe: `You were trying to access a project with ID X, while there are no projects with this ID.`.
-  - Si ha habido algún error en el fetch: el mensaje de error devuelto por el servidor.
-  - Por defecto, en cualquier otro caso: `The page you are looking for does not exist`.
+   - Si no se ha especificado Project ID en la URL: `You were trying to see a project without specifying a project ID`.
+   - Si el proyecto no existe: `You were trying to access a project with ID X, while there are no projects with this ID.`.
+   - Si ha habido algún error en el fetch: el mensaje de error devuelto por el servidor.
+   - Por defecto, en cualquier otro caso: `The page you are looking for does not exist`.
 - Un botón que lleva a la página de un proyecto aleatorio. En caso de fallo del servidor, el botón lleva a la página principal.
 - Las secciones "Projects" y "Do you have any questions?", así como el Footer.
 
@@ -56,9 +65,9 @@ La página 404 muestra lo siguiente:
 
 En pantallas pequeñas (con ancho inferior a 768px), el menú se muestra como un "burger button", que muestra un menú flotante al hacer click.
 
-|                                                                                                    |                                                                                               |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **Desktop**                                                                                        | **Mobile**                                                                                    |
+| | |
+| - | - |
+| **Desktop** | **Mobile** |
 | ![Captura de la barra de navegación en pantallas de escritorio](/img/readme/responsive-menu-1.png) | ![Captura de la barra de navegación en pantallas pequeñas](/img/readme/responsive-menu-2.png) |
 
 ### Favicon
@@ -70,7 +79,7 @@ A partir del SVG con el logo de la empresa, he creado otro SVG con un fondo blan
 En los `head` de todos los documentos HTML, he añadido la siguiente línea para que se muestre el favicon en la pestaña del navegador:
 
 ```html
-<link rel="icon" type="image/x-icon" href="/img/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="./img/favicon.svg" />
 ```
 
 ### Título de pestaña dinámico en "projects"
@@ -128,11 +137,32 @@ Un posible trabajo futuro sería mostrar los nombres de los datos de forma más 
 
 En la página principal, a medida que el usuario va desplazándose por la página, la barra de navegación se actualiza resaltando la sección mostrada.
 
-|             |                                                                           |
-| ----------- | ------------------------------------------------------------------------- |
-| **Sección** | **Barra de navegación**                                                   |
-| Home        | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-1.png) |
-| Projects    | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-2.png) |
-| Services    | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-3.png) |
+| | |
+| - | - |
+| **Sección** | **Barra de navegación** |
+| Home | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-1.png) |
+| Projects | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-2.png) |
+| Services | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-3.png) |
 
 En el resto de páginas, no se resalta nada, (dado que las tres secciones se encuentran en la página principal).
+
+## To do
+
+- [x] Reproducir las páginas en HTML y CSS
+- [x] Hacerlo responsive
+- [x] Añadir JavaScript
+   - [x] Get data for project pages dynamically from API
+   - [x] Validar el formulario usando JavaScript
+- [x] Para obtener créditos extra, añadir alguna funcionalidad adicional:
+   - [x] Una página 404 que funcione
+   - [x] Un menú responsivo. Cuando se hace clic, cambiar el menú
+   - [x] Skeleton loaders for dynamic content
+   - [x] Add a favicon
+   - [x] In projects, change document title dynamically
+   - [x] Un "modo oscuro" según los ajustes del usuario
+   - [x] Añadir un botón de "modo oscuro" que cambie el tema de la página
+   - [x] Show a success message when the form is submitted, with the details of the form
+   - [x] Remember the previously-sent form, using localStorage
+   - [x] Highlight the current section in nav-bar
+- [ ] Desplegar en Netlify
+- [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
