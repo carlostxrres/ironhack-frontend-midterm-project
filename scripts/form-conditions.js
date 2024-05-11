@@ -66,7 +66,7 @@ const formConditions = [
     fieldName: "phone",
     condition: (fieldValue) => {
       const numericPhoneRegex = /^[0-9 -]+$/
-      return numericPhoneRegex.test(fieldValue)
+      return numericPhoneRegex.test(fieldValue.trim())
     },
   },
   {
