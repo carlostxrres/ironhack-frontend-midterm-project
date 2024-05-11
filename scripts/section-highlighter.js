@@ -12,7 +12,7 @@ const handleEntry = (entry) => {
     `.nav-bar .${CURRENT_SECTION_CLASSNAME}`
   )
   const shouldBeActive = document.querySelector(
-    `.nav-bar [href="/index.html#${id}"]`
+    `.nav-bar [href="./index.html#${id}"]`
   )
 
   if (currentlyActive instanceof HTMLElement) {
