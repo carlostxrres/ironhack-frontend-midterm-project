@@ -1,17 +1,10 @@
-> [!WARNING]
-> This project is under construction️
-
 # Bootcamp midterm project
 
-En este proyecto, vas a construir y desplegar tu primer sitio web totalmente responsivo utilizando las tecnologías que has aprendido hasta ahora: HTML, CSS y JavaScript.
+En este proyecto, replico un diseño de Figma en HTML, CSS y JavaScript, de forma totalmente responsiva.
 
 ## Funcionalidades básicas
 
 ### Páginas
-
-| **/** | **/project.html?id=1** | **/contact-us.html** |
-|-|-|-|
-|![Captura de la página principal](/img/readme/home-1.png)|![Captura de la página de proyecto](/img/readme/project-1.png)|![Captura de la página de contacto](/img/readme/contact-us-1.png)|
 
 * **Página principal: `/` o `/index.hml`**
 ![Captura de la página principal](/img/readme/home-1.png)
@@ -26,7 +19,7 @@ En este proyecto, vas a construir y desplegar tu primer sitio web totalmente res
 
 Los datos de los proyectos se obtienen dede [el endpoint provisto en las instrucciones](https://raw.githubusercontent.com/ironhack-jc/mid-term-api/main/projects), tanto en las listas de proyectos como en las páginas de proyectos individuales.
 
-### Validar el formulario usando JavaScript
+### Validación del formulario de contacto
 
 Las condiciones de validación del formulario se definen en el archivo [`scripts/form-conditions.js`](scripts/form-conditions.js) y se ejecutan en [`scripts/form-validation.js`](scripts/form-validation.js).
 
@@ -45,17 +38,21 @@ Se han añadido las siguientes condiciones:
 
 ## Funcionalidades adicionales
 
-### Página 404 que funcione
+### Página 404
 
 He creado una página 404 que se muestra cuando hay algún error en la página `/project.html`.
 
 La página 404 muestra lo siguiente:
 
-- Una explicación del error.
-   - Si no se ha especificado Project ID en la URL: `You were trying to see a project without specifying a project ID`.
-   - Si el proyecto no existe: `You were trying to access a project with ID X, while there are no projects with this ID.`.
-   - Si ha habido algún error en el fetch: el mensaje de error devuelto por el servidor.
-   - Por defecto, en cualquier otro caso: `The page you are looking for does not exist`.
+- Una explicación del error:
+
+   | | |
+   |-|-|
+   | Si no se ha especificado Project ID en la URL: | `You were trying to see a project without specifying a project ID` |
+   | Si el proyecto no existe: | `You were trying to access a project with ID <project-id>, while there are no projects with this ID` |
+   | Si ha habido algún error en el fetch: | El mensaje de error devuelto por el servidor |
+   | Por defecto, en cualquier otro caso: | `The page you are looking for does not exist` |
+
 - Un botón que lleva a la página de un proyecto aleatorio. En caso de fallo del servidor, el botón lleva a la página principal.
 - Las secciones "Projects" y "Do you have any questions?", así como el Footer.
 
@@ -63,20 +60,19 @@ La página 404 muestra lo siguiente:
 
 ### Menú responsivo
 
-En pantallas pequeñas (con ancho inferior a 768px), el menú se muestra como un "burger button", que muestra un menú flotante al hacer click.
+En pantallas pequeñas (con ancho inferior a 768px), el menú se muestra de forma flotante al hacer click en un "burger button".
 
-| | |
-| - | - |
 | **Desktop** | **Mobile** |
+|-|-|
 | ![Captura de la barra de navegación en pantallas de escritorio](/img/readme/responsive-menu-1.png) | ![Captura de la barra de navegación en pantallas pequeñas](/img/readme/responsive-menu-2.png) |
 
 ### Favicon
 
-A partir del SVG con el logo de la empresa, he creado otro SVG con un fondo blanco, a modo de favicon. He elegido para ello la letra `e` porque me parecía la más llamativa. Le he añadido un fondo blanco para que sea visible en cualquier tema del navegador:
+He creado un favicon para la página. He elegido para ello la letra `e` del logo de la empresa (porque me parecía la más llamativa) y le he puesto un fondo blanco para que asegurar su visibilidad en cualquier tema del navegador:
 
 ![Imagen del favicon](/img/favicon.svg)
 
-En los `head` de todos los documentos HTML, he añadido la siguiente línea para que se muestre el favicon en la pestaña del navegador:
+En los `head` de los documentos HTML, he añadido la siguiente línea para mostrar el favicon:
 
 ```html
 <link rel="icon" type="image/x-icon" href="./img/favicon.svg" />
@@ -102,7 +98,7 @@ El skeleton loader es inapreciable si tienes una conexión rápida, a menos que 
 
 ### Modo oscuro
 
-Al hacer hover sobre la barra de navegación, a la izquierda del logo de la empresa, aparece un botón que permite cambiar el tema de la página. Al hacer click, se cambian los colores de la página a un modo oscuro.
+Al hacer hover sobre la barra de navegación, a la izquierda del logo de la empresa, aparece un botón que permite cambiar el tema de la página. Y al hacer click en él, se cambian los colores de la página a un modo oscuro.
 
 ![Captura de la página cambiando el modo de claro a oscuro](/img/readme/modo-oscuro-1.gif)
 
@@ -137,9 +133,8 @@ Un posible trabajo futuro sería mostrar los nombres de los datos de forma más 
 
 En la página principal, a medida que el usuario va desplazándose por la página, la barra de navegación se actualiza resaltando la sección mostrada.
 
-| | |
-| - | - |
 | **Sección** | **Barra de navegación** |
+|-|-|
 | Home | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-1.png) |
 | Projects | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-2.png) |
 | Services | ![Captura de la barra de navegación](/img/readme/seccion-resaltada-3.png) |
@@ -164,5 +159,5 @@ En el resto de páginas, no se resalta nada, (dado que las tres secciones se enc
    - [x] Show a success message when the form is submitted, with the details of the form
    - [x] Remember the previously-sent form, using localStorage
    - [x] Highlight the current section in nav-bar
-- [ ] Desplegar en Netlify
-- [ ] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
+- [x] Desplegar en Netlify
+- [x] Crear un archivo README que cubra todas las características, configuración y especificaciones de la aplicación
