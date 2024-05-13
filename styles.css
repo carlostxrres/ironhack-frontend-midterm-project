@@ -187,6 +187,7 @@ section {
             display: block;
             color: var(--color-text-2);
             transition: color var(--transition-slow);
+            text-align: center;
 
             &.current-page {
                 color: var(--color-primary-1);
@@ -820,7 +821,7 @@ form:invalid button[type="submit"] {
     }
 
     .nav-bar {
-        padding: 1rem var(--body-padding-inline-small);
+        padding-inline: var(--body-padding-inline-small);
 
     }
 
