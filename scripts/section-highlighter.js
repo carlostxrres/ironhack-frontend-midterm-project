@@ -1,18 +1,12 @@
 const CURRENT_SECTION_CLASSNAME = "current-page"
 
-const config = {
-  rootMargin: "-50px 0px -55%",
-}
-
-const handleEntry = (entry) => {
-  if (!entry.isIntersecting) return
-
-  const id = entry.target.id
+const handleIntersection = (intersection) => {
+  const sectionId = intersection.target.id
   const currentlyActive = document.querySelector(
     `.nav-bar .${CURRENT_SECTION_CLASSNAME}`
   )
   const shouldBeActive = document.querySelector(
-    `.nav-bar [href="./index.html#${id}"]`
+    `.nav-bar [href*="#${sectionId}"]`
   )
 
   if (currentlyActive instanceof HTMLElement) {
@@ -23,7 +17,12 @@ const handleEntry = (entry) => {
     shouldBeActive.classList.add(CURRENT_SECTION_CLASSNAME)
   }
 }
-const handleEntries = (entries) => entries.forEach(handleEntry)
-const observer = new IntersectionObserver(handleEntries)
+const handleIntersections = (intersections) => {
+  const intersecting = intersections.find(intersection => intersection.isIntersecting)
+  if (intersecting) {
+    handleIntersection(intersecting)
+  }
+}
+const observer = new IntersectionObserver(handleIntersections)
 const sections = document.querySelectorAll("#hero, #projects, #services")
 sections.forEach((section) => observer.observe(section))
