@@ -141,6 +141,13 @@ En la página principal, a medida que el usuario va desplazándose por la págin
 
 En el resto de páginas, no se resalta nada, (dado que las tres secciones se encuentran en la página principal).
 
+## Posible trabajo futuro
+
+* Cambiar algunos colores del modo oscuro.
+* Mejorar la visualización del mensaje enviado para mensajes largos.
+* En pantallas pequeñas, mejorar el comportamiento del menú flotante (hacerlo desaparecer al hacer click fuera de él, por ejemplo).
+* "Desnestear" el CSS, para hacerlo compatible con versiones anteriores de navegadores.
+
 ## To do
 
 - [x] Reproducir las páginas en HTML y CSS
