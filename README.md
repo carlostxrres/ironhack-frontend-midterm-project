@@ -149,22 +149,6 @@ En el resto de páginas, no se resalta nada, (dado que las tres secciones se enc
 * Desanidar el CSS, para hacerlo compatible con versiones anteriores de navegadores.
 * Manejar submits del formulario de email en la sección "Do you have any questions?"
 
-## Licencia y créditos
-Este proyecto está bajo la licencia [MIT](./LICENSE).
-
-Los siguientes archivos fueron proporcionados por Ironhack:
-* [El diseño original en Figma](./mid-term-project.fig)
-* [Las imágenes en la carpeta logos](./img/logos)
-* [Las imágenes en la carpeta newsletter](./img/newsletter)
-* [Las imágenes en la carpeta hero-section](./img/hero-section)
-* [Las imágenes en la carpeta projects-section](./img/projects-section)
-* [Las imágenes en la carpeta services-section](./img/services-section)
-* [Las imágenes en la carpeta testimonial-section](./img/testimonial-section)
-
-El [endpoint de los proyectos](https://raw.githubusercontent.com/ironhack-jc/mid-term-api/main/projects) también fue proporcionado por Ironhack.
-
-El resto de archivos fue creado por mí.
-
 ## To do
 
 - [x] Reproducir las páginas en HTML y CSS
